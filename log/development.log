@@ -208,3 +208,1136 @@ FOREIGN KEY ("rule_id")
   [1m[36mRule Load (0.5ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mRulesplace Create (1.3ms)[0m  [1m[32mINSERT INTO "rulesplaces" ("place_id", "rule_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["place_id", 1], ["rule_id", 1], ["created_at", "2018-11-27 15:22:29.819545"], ["updated_at", "2018-11-27 15:22:29.819545"]]
   [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAdmins (20181127140947)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (81.5ms)[0m  [1m[35mCREATE TABLE "admins" ("id" bigserial primary key)[0m
+  ↳ db/migrate/20181127140947_create_admins.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127140947"]]
+  ↳ bin/rails:9
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to AddField (20181127143120)
+  [1m[35m (40.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mALTER TABLE "admins" ADD "username" text[0m
+  ↳ db/migrate/20181127143120_add_field.rb:3
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "admins" ADD "email" text[0m
+  ↳ db/migrate/20181127143120_add_field.rb:4
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "admins" ADD "password" text[0m
+  ↳ db/migrate/20181127143120_add_field.rb:5
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127143120"]]
+  ↳ bin/rails:9
+  [1m[35m (25.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreatePlaces (20181127145215)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (28.9ms)[0m  [1m[35mCREATE TABLE "places" ("id" bigserial primary key, "title_place" character varying, "desc_place" character varying, "img_place" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181127145215_create_places.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127145215"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRules (20181127145742)
+  [1m[35m (25.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE TABLE "rules" ("id" bigserial primary key, "desc_rules" character varying, "img_rules" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181127145742_create_rules.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127145742"]]
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateEvents (20181127145902)
+  [1m[35m (25.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "events" ("id" bigserial primary key, "title_event" character varying, "desc_event" character varying, "img_event" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181127145902_create_events.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127145902"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRulesplaces (20181127150631)
+  [1m[35m (25.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE TABLE "rulesplaces" ("id" bigserial primary key, "place_id" bigint, "rule_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_b618626234"
+FOREIGN KEY ("place_id")
+  REFERENCES "places" ("id")
+, CONSTRAINT "fk_rails_6b33ca0ad5"
+FOREIGN KEY ("rule_id")
+  REFERENCES "rules" ("id")
+)[0m
+  ↳ db/migrate/20181127150631_create_rulesplaces.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_rulesplaces_on_place_id" ON "rulesplaces"  ("place_id")[0m
+  ↳ db/migrate/20181127150631_create_rulesplaces.rb:3
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_rulesplaces_on_rule_id" ON "rulesplaces"  ("rule_id")[0m
+  ↳ db/migrate/20181127150631_create_rulesplaces.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181127150631"]]
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mAdmin Load (0.8ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (2.2ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mPlace Load (2.3ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRule Load (3.1ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRule Load (0.2ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" ORDER BY "rules"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAdmin Load (0.5ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAdmin Load (0.4ms)[0m  [1m[34mSELECT  "admins".* FROM "admins" ORDER BY "admins"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mPlace Load (12.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2018-11-27 23:58:41 +0700
+  [1m[35m (18.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/railties-5.2.1/lib/rails/templates/rails/welcome/index.html.erb (14.2ms)
+Completed 200 OK in 78ms (Views: 50.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/places_post" for 127.0.0.1 at 2018-11-27 23:58:52 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/places_post"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/places_post" for 127.0.0.1 at 2018-11-28 00:01:36 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/places_post"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:03:40 +0700
+  
+ActionController::RoutingError (uninitialized constant PostsController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:04:54 +0700
+  
+ActionController::RoutingError (uninitialized constant PlacesController):
+  
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `block in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:8:in `without_bootsnap_cache'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:74:in `rescue in load_missing_constant'
+bootsnap (1.3.2) lib/bootsnap/load_path_cache/core_ext/active_support.rb:56:in `load_missing_constant'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `const_get'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:283:in `block in constantize'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `each'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `inject'
+activesupport (5.2.1) lib/active_support/inflector/methods.rb:281:in `constantize'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (5.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:46:in `controller'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:07:05 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place1"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "place"=>{}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 11.1ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:09:18 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place1"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "place"=>{}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 16.7ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:211:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:243:in `handle_unverified_request'
+actionpack (5.2.1) lib/action_controller/metal/request_forgery_protection.rb:238:in `verify_authenticity_token'
+activesupport (5.2.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (5.2.1) lib/active_support/callbacks.rb:198:in `block (2 levels) in halting'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:34:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.2.1) lib/active_support/callbacks.rb:199:in `block in halting'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `block in invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `each'
+activesupport (5.2.1) lib/active_support/callbacks.rb:513:in `invoke_before'
+activesupport (5.2.1) lib/active_support/callbacks.rb:131:in `run_callbacks'
+actionpack (5.2.1) lib/abstract_controller/callbacks.rb:41:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `block in instrument'
+activesupport (5.2.1) lib/active_support/notifications/instrumenter.rb:23:in `instrument'
+activesupport (5.2.1) lib/active_support/notifications.rb:168:in `instrument'
+actionpack (5.2.1) lib/action_controller/metal/instrumentation.rb:32:in `process_action'
+actionpack (5.2.1) lib/action_controller/metal/params_wrapper.rb:256:in `process_action'
+activerecord (5.2.1) lib/active_record/railties/controller_runtime.rb:24:in `process_action'
+actionpack (5.2.1) lib/abstract_controller/base.rb:134:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:11:47 +0700
+  
+ActionController::RoutingError (undefined method `skip_before_filter' for PlacesController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/places_controller.rb:4:in `<class:PlacesController>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:13:05 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place1"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "place"=>{}}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 7.1ms)
+
+
+  
+NameError (uninitialized constant PlacesController::Places):
+  
+app/controllers/places_controller.rb:16:in `create'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:13:46 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place1"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "place"=>{}}
+Completed 400 Bad Request in 2ms (ActiveRecord: 5.5ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: place):
+  
+app/controllers/places_controller.rb:41:in `place_param'
+app/controllers/places_controller.rb:16:in `create'
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 00:17:32 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:16
+  [1m[36mPlace Create (46.8ms)[0m  [1m[32mINSERT INTO "places" ("title_place", "desc_place", "img_place", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title_place", "Borobudur"], ["desc_place", "about borobudur"], ["img_place", "gambar borobudur"], ["created_at", "2018-11-27 17:17:32.306435"], ["updated_at", "2018-11-27 17:17:32.306435"]]
+  ↳ app/controllers/places_controller.rb:16
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:16
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:17
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:17
+Completed 201 Created in 156ms (Views: 2.8ms | ActiveRecord: 93.9ms)
+
+
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:21:58 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places?1=" for 127.0.0.1 at 2018-11-28 00:24:31 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "1"=>""}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:37:27 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:44:52 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:45:46 +0700
+  [1m[35m (43.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:48:05 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:48:13 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:52:10 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place! rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:52:45 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:53:21 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 00:58:21 +0700
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/places_controller.rb:4:in `<class:PlacesController>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:00:38 +0700
+  
+ActionController::RoutingError (undefined method `protect_from_forgery' for ApplicationController:Class):
+  
+app/controllers/application_controller.rb:3:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:01:57 +0700
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/places_controller.rb:4:in `<class:PlacesController>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:02:18 +0700
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/places_controller.rb:4:in `<class:PlacesController>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:05:03 +0700
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/places_controller.rb:4:in `<class:PlacesController>'
+app/controllers/places_controller.rb:1:in `<main>'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:05:32 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 01:05:34 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 07:28:52 +0700
+  [1m[35m (5.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 07:32:47 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 07:37:05 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+Filter chain halted as :authenticate_place rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/places" for 127.0.0.1 at 2018-11-28 07:37:57 +0700
+Processing by PlacesController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}}
+  [1m[36mPlace Load (43.6ms)[0m  [1m[34mSELECT "places".* FROM "places"[0m
+  ↳ app/controllers/places_controller.rb:7
+Completed 200 OK in 78ms (Views: 1.3ms | ActiveRecord: 60.8ms)
+
+
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 07:45:05 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"place"=>{"title_place"=>"Prambanan", "desc_place"=>"about Prambananr", "img_place"=>"gambar Prambanan"}}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:23
+  [1m[36mPlace Create (11.3ms)[0m  [1m[32mINSERT INTO "places" ("title_place", "desc_place", "img_place", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title_place", "Prambanan"], ["desc_place", "about Prambananr"], ["img_place", "gambar Prambanan"], ["created_at", "2018-11-28 00:45:05.912659"], ["updated_at", "2018-11-28 00:45:05.912659"]]
+  ↳ app/controllers/places_controller.rb:23
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:24
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:24
+Completed 201 Created in 40ms (Views: 2.7ms | ActiveRecord: 13.7ms)
+
+
+Started POST "/place_post" for 127.0.0.1 at 2018-11-28 08:07:58 +0700
+Processing by PlacesController#create as */*
+  Parameters: {"text/plain"=>[""]}
+Completed 400 Bad Request in 9ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: place):
+  
+app/controllers/places_controller.rb:48:in `place_param'
+app/controllers/places_controller.rb:23:in `create'
+Started POST "/places" for 127.0.0.1 at 2018-11-28 08:08:40 +0700
+  
+ActionController::RoutingError (No route matches [POST] "/places"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mEvent Load (2.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/event_post" for 127.0.0.1 at 2018-11-28 09:33:37 +0700
+  [1m[35m (47.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by EventsController#create as */*
+  Parameters: {"event"=>{"title_event"=>"17 Agustusan", "desc_place"=>"about 17 Agustus", "img_place"=>"gambar 17 Agustus"}}
+Unpermitted parameters: :desc_place, :img_place
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mEvent Create (49.3ms)[0m  [1m[32mINSERT INTO "events" ("title_event", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title_event", "17 Agustusan"], ["created_at", "2018-11-28 02:33:38.384673"], ["updated_at", "2018-11-28 02:33:38.384673"]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:23
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:23
+Completed 201 Created in 131ms (Views: 1.4ms | ActiveRecord: 104.9ms)
+
+
+Started POST "/event_post" for 127.0.0.1 at 2018-11-28 09:34:42 +0700
+Processing by EventsController#create as */*
+  Parameters: {"event"=>{"title_event"=>"17 Agustusan", "desc_event"=>"about 17 Agustus", "img_event"=>"gambar 17 Agustus"}}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[36mEvent Create (1.3ms)[0m  [1m[32mINSERT INTO "events" ("title_event", "desc_event", "img_event", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title_event", "17 Agustusan"], ["desc_event", "about 17 Agustus"], ["img_event", "gambar 17 Agustus"], ["created_at", "2018-11-28 02:34:42.942977"], ["updated_at", "2018-11-28 02:34:42.942977"]]
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:22
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/events_controller.rb:23
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/events_controller.rb:23
+Completed 201 Created in 53ms (Views: 0.8ms | ActiveRecord: 43.9ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2018-11-28 09:38:12 +0700
+Processing by EventsController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "event"=>{}}
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `place' for #<EventsController:0x00007f98fdef3290>):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events" for 127.0.0.1 at 2018-11-28 09:38:24 +0700
+Processing by EventsController#index as */*
+  Parameters: {"place"=>{"title_place"=>"Borobudur", "desc_place"=>"about borobudur", "img_place"=>"gambar borobudur"}, "event"=>{}}
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `place' for #<EventsController:0x00007f98fe2b9b90>):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/places" for 127.0.0.1 at 2018-11-28 09:39:11 +0700
+Processing by PlacesController#index as */*
+  [1m[36mPlace Load (63.4ms)[0m  [1m[34mSELECT "places".* FROM "places"[0m
+  ↳ app/controllers/places_controller.rb:7
+Completed 200 OK in 85ms (Views: 1.1ms | ActiveRecord: 67.5ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2018-11-28 09:39:20 +0700
+Processing by EventsController#index as */*
+Completed 500 Internal Server Error in 222ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (undefined local variable or method `place' for #<EventsController:0x00007f99012d5338>):
+  
+app/controllers/events_controller.rb:7:in `index'
+Started GET "/events" for 127.0.0.1 at 2018-11-28 09:40:09 +0700
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:7
+Completed 500 Internal Server Error in 240ms (ActiveRecord: 18.1ms)
+
+
+  
+NameError (undefined local variable or method `ok' for #<EventsController:0x00007f99014536d8>):
+  
+app/controllers/events_controller.rb:8:in `index'
+Started GET "/events" for 127.0.0.1 at 2018-11-28 09:40:41 +0700
+Processing by EventsController#index as */*
+  [1m[36mEvent Load (2.9ms)[0m  [1m[34mSELECT "events".* FROM "events"[0m
+  ↳ app/controllers/events_controller.rb:7
+Completed 200 OK in 61ms (Views: 1.2ms | ActiveRecord: 24.5ms)
+
+
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:9
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRule Load (42.1ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mRule Load (1.2ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/places" for 127.0.0.1 at 2018-11-28 10:03:40 +0700
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [POST] "/places"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/rule_post" for 127.0.0.1 at 2018-11-28 10:06:36 +0700
+Processing by RulesController#create as */*
+  Parameters: {"rule"=>{"desc_rules"=>"jangan membuang sampah sembarangan", "img_rules"=>"gambar_tempat_sampah.jpg"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rules_controller.rb:22
+  [1m[36mRule Create (4.6ms)[0m  [1m[32mINSERT INTO "rules" ("desc_rules", "img_rules", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["desc_rules", "jangan membuang sampah sembarangan"], ["img_rules", "gambar_tempat_sampah.jpg"], ["created_at", "2018-11-28 03:06:36.594528"], ["updated_at", "2018-11-28 03:06:36.594528"]]
+  ↳ app/controllers/rules_controller.rb:22
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rules_controller.rb:22
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rules_controller.rb:23
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rules_controller.rb:23
+Completed 201 Created in 43ms (Views: 2.0ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/rules" for 127.0.0.1 at 2018-11-28 10:07:31 +0700
+Processing by RulesController#index as */*
+  Parameters: {"rule"=>{"desc_rules"=>"jangan membuang sampah sembarangan", "img_rules"=>"gambar_tempat_sampah.jpg"}}
+  [1m[36mRule Load (12.8ms)[0m  [1m[34mSELECT "rules".* FROM "rules"[0m
+  ↳ app/controllers/rules_controller.rb:7
+Completed 200 OK in 66ms (Views: 1.3ms | ActiveRecord: 12.8ms)
+
+
+Started PUT "/rule/update" for 127.0.0.1 at 2018-11-28 10:18:22 +0700
+Processing by RulesController#update as */*
+  Parameters: {"rule"=>{"desc_rules"=>"jangan membuang sampah sembarangan ya bro", "img_rules"=>"gambar_tempat_sampah.jpg"}}
+  [1m[36mRule Load (0.5ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/rules_controller.rb:44
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 4.2ms)
+
+
+  
+NoMethodError (undefined method `update' for nil:NilClass):
+  
+app/controllers/rules_controller.rb:31:in `update'
+Started DELETE "/rule/1" for 127.0.0.1 at 2018-11-28 10:29:04 +0700
+  
+ActionController::RoutingError (No route matches [DELETE] "/rule/1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/rule/1" for 127.0.0.1 at 2018-11-28 10:29:25 +0700
+  
+ActionController::RoutingError (No route matches [DELETE] "/rule/1"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rule" for 127.0.0.1 at 2018-11-28 10:30:56 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/rule"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rules" for 127.0.0.1 at 2018-11-28 10:31:12 +0700
+Processing by RulesController#index as */*
+  Parameters: {"rule"=>{}}
+  [1m[36mRule Load (0.6ms)[0m  [1m[34mSELECT "rules".* FROM "rules"[0m
+  ↳ app/controllers/rules_controller.rb:7
+Completed 200 OK in 43ms (Views: 1.3ms | ActiveRecord: 18.2ms)
+
+
+Started GET "/rules/1" for 127.0.0.1 at 2018-11-28 10:31:16 +0700
+Processing by RulesController#show as */*
+  Parameters: {"id"=>"1", "rule"=>{}}
+  [1m[36mRule Load (42.9ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rules_controller.rb:52
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 44.1ms)
+
+
+  
+NameError (undefined local variable or method `set_param' for #<RulesController:0x00007fb3f4aa6c20>
+Did you mean?  to_param):
+  
+app/controllers/rules_controller.rb:17:in `show'
+Started GET "/rules/1" for 127.0.0.1 at 2018-11-28 10:32:20 +0700
+Processing by RulesController#show as */*
+  Parameters: {"id"=>"1", "rule"=>{}}
+  [1m[36mRule Load (0.4ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rules_controller.rb:52
+  [1m[36mCACHE Rule Load (0.0ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/rules_controller.rb:52
+Completed 200 OK in 12ms (Views: 0.8ms | ActiveRecord: 6.3ms)
+
+
+Started PUT "/rule/update" for 127.0.0.1 at 2018-11-28 10:33:08 +0700
+Processing by RulesController#update as */*
+  Parameters: {"rule"=>{}}
+  [1m[36mRule Load (3.2ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/rules_controller.rb:52
+Completed 400 Bad Request in 7ms (ActiveRecord: 3.2ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: rule):
+  
+app/controllers/rules_controller.rb:48:in `rule_param'
+app/controllers/rules_controller.rb:31:in `update'
+  [1m[36mPlace Load (4.7ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+Started PUT "/place/update/1" for 127.0.0.1 at 2018-11-28 13:44:54 +0700
+  [1m[35m (27.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by PlacesController#update as */*
+  Parameters: {"title_places"=>"Yogyakarta", "id"=>"1", "place"=>{}}
+  [1m[36mPlace Load (41.7ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:54
+Completed 400 Bad Request in 69ms (ActiveRecord: 47.5ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: place):
+  
+app/controllers/places_controller.rb:50:in `place_param'
+app/controllers/places_controller.rb:34:in `update'
+Started PUT "/place/update/1" for 127.0.0.1 at 2018-11-28 13:47:11 +0700
+Processing by PlacesController#update as */*
+  Parameters: {"title_place"=>"Yogyakarta", "desc_place"=>"tentang yogyakarta", "img_place"=>"gambar.jogja.jpg", "id"=>"1", "place"=>{"title_place"=>"Yogyakarta", "desc_place"=>"tentang yogyakarta", "img_place"=>"gambar.jogja.jpg"}}
+  [1m[36mPlace Load (3.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:54
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:34
+  [1m[36mPlace Update (30.5ms)[0m  [1m[33mUPDATE "places" SET "title_place" = $1, "desc_place" = $2, "img_place" = $3, "updated_at" = $4 WHERE "places"."id" = $5[0m  [["title_place", "Yogyakarta"], ["desc_place", "tentang yogyakarta"], ["img_place", "gambar.jogja.jpg"], ["updated_at", "2018-11-28 06:47:11.342600"], ["id", 1]]
+  ↳ app/controllers/places_controller.rb:34
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:34
+Completed 200 OK in 48ms (Views: 0.7ms | ActiveRecord: 34.8ms)
+
+
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1[0m  [["LIMIT", 11]]
+Started DELETE "/places/delete/1" for 127.0.0.1 at 2018-11-28 13:51:06 +0700
+  
+AbstractController::ActionNotFound (The action 'destroy' could not be found for PlacesController):
+  
+actionpack (5.2.1) lib/abstract_controller/base.rb:129:in `process'
+actionview (5.2.1) lib/action_view/rendering.rb:32:in `process'
+actionpack (5.2.1) lib/action_controller/metal.rb:191:in `dispatch'
+actionpack (5.2.1) lib/action_controller/metal.rb:252:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:52:in `dispatch'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:34:in `serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:52:in `block in serve'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `each'
+actionpack (5.2.1) lib/action_dispatch/journey/router.rb:35:in `serve'
+actionpack (5.2.1) lib/action_dispatch/routing/route_set.rb:840:in `call'
+rack (2.0.6) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+actionpack (5.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/cookies.rb:670:in `call'
+activerecord (5.2.1) lib/active_record/migration.rb:559:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.1) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/places/delete/1" for 127.0.0.1 at 2018-11-28 13:52:17 +0700
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"1", "place"=>{}}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 28.4ms)
+
+
+  
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  
+app/controllers/places_controller.rb:42:in `destroy'
+Started DELETE "/places/delete/1" for 127.0.0.1 at 2018-11-28 13:53:13 +0700
+Processing by PlacesController#destroy as */*
+  Parameters: {"id"=>"1", "place"=>{}}
+  [1m[36mPlace Load (0.5ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:42
+  [1m[36mPlace Destroy (6.8ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/places_controller.rb:42
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:42
+Completed 200 OK in 28ms (Views: 0.3ms | ActiveRecord: 17.0ms)
+
+
+Started DELETE "/places/delete/2" for 127.0.0.1 at 2018-11-28 13:54:19 +0700
+Processing by PlacesController#delete as */*
+  Parameters: {"id"=>"2", "place"=>{}}
+  [1m[36mPlace Load (0.8ms)[0m  [1m[34mSELECT  "places".* FROM "places" WHERE "places"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/places_controller.rb:54
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/places_controller.rb:42
+  [1m[36mPlace Destroy (0.5ms)[0m  [1m[31mDELETE FROM "places" WHERE "places"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/places_controller.rb:42
+  [1m[35m (40.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/places_controller.rb:42
+Completed 200 OK in 57ms (Views: 0.2ms | ActiveRecord: 47.3ms)
+
+
