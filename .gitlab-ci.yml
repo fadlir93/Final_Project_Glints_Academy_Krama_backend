@@ -1,6 +1,9 @@
 services:
   - postgres:latest
 
+variables:
+  POSTGRES_DB: project_krama
+
 stages:
   - build
   - staging
