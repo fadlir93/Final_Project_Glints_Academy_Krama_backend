@@ -1,0 +1,22 @@
+services:
+  - postgres:latest
+  
+stages:
+  - staging
+  - production
+
+deploy-staging:
+  stage: staging
+  script:
+    - gem install dpl
+    - dpl --provider=heroku --app=$STAGING_APP --api-key=$HEROKU_API_KEY
+  only:
+    - develop
+
+deploy-production:
+  stage: production
+  script:
+    - gem install dpl
+    - dpl --provide_heroku --app=$STAGING_APP --api-key=$HEROKU_API_KEY
+  only:
+    - master
