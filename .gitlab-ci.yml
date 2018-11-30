@@ -24,12 +24,12 @@ build-code:
     - master
     - develop
 
-
 deploy-staging:
   stage: staging
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$STAGING_APP --api-key=$HEROKU_API_KEY
+    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $TELEGRAM_BOT_URL
   only:
     - develop
 
@@ -38,5 +38,6 @@ deploy-production:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$PROD_APP --api-key=$HEROKU_API_KEY
+    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $TELEGRAM_BOT_URL
   only:
     - master
