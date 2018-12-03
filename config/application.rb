@@ -16,7 +16,7 @@ module ProjectKrama
         origins '*'
         resource '*', :headers => :any, :methods => [:get, :post, :options]
       end
-    end
+    end 
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
