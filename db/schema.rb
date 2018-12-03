@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_27_150631) do
+ActiveRecord::Schema.define(version: 2018_11_30_075135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,11 +29,6 @@ ActiveRecord::Schema.define(version: 2018_11_27_150631) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
-  end
-
   create_table "places", force: :cascade do |t|
     t.string "title_place"
     t.string "desc_place"
@@ -49,6 +44,15 @@ ActiveRecord::Schema.define(version: 2018_11_27_150631) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "rulesevents", force: :cascade do |t|
+    t.bigint "event_id"
+    t.bigint "rule_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_rulesevents_on_event_id"
+    t.index ["rule_id"], name: "index_rulesevents_on_rule_id"
+  end
+
   create_table "rulesplaces", force: :cascade do |t|
     t.bigint "place_id"
     t.bigint "rule_id"
@@ -58,6 +62,8 @@ ActiveRecord::Schema.define(version: 2018_11_27_150631) do
     t.index ["rule_id"], name: "index_rulesplaces_on_rule_id"
   end
 
+  add_foreign_key "rulesevents", "events"
+  add_foreign_key "rulesevents", "rules"
   add_foreign_key "rulesplaces", "places"
   add_foreign_key "rulesplaces", "rules"
 end
