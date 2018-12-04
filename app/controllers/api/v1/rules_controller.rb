@@ -31,9 +31,9 @@ module Api
 
             def update
                 if @rule.update(rule_param)
-                    render json: {result: true, msg: "delete success"}
+                    render json: {result: true, msg: "Update success"}
                 else
-                    render json: {result: false, msg: "delete failed"}
+                    render json: {result: false, msg: "Update failed"}
                 end
             end
 
