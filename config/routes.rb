@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get 'rules', to: 'rules#index'
       post 'rule_post', to: 'rules#create'
       get 'rules/:id', to: 'rules#show'
-      delete 'rules/delete/:id', to: 'rules#destroy'
+      delete 'rules/delete/:id', to: 'rules#delete'
       put 'rule/update/:id', to: 'rules#update'
       end
     end
