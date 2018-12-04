@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'events', to: 'events#index'
       post 'event_post', to: 'events#create'
       get 'events/:id', to: 'events#show' 
-      delete 'events/:id/delete', to: 'events#destroy'
+      delete 'events/delete/:id', to: 'events#delete'
       put 'event/update/:id', to: 'events#update'
 
       #rule
