@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(version: 2018_11_30_075135) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "logins", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "title_place"
     t.string "desc_place"
