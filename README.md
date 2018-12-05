@@ -1,24 +1,72 @@
-# README  
+# Krama Back-end
+> These are some of the Krama products that are back end which only display APIs
+.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)]()
 
-Things you may want to cover:
+## Entity Relationship Diagram Krama
 
-* Ruby version
+![](https://i.ibb.co/z59BDMR/Screen-Shot-2018-11-27-at-21-57-33.png)
 
-* System dependencies
+## Installation
 
-* Configuration
+Ruby On Rails:
 
-* Database creation
+```sh
+cd
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
 
-* Database initialization
+git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+exec $SHELL
 
-* How to run the test suite
+rbenv install 2.5.3
+rbenv global 2.5.3
+ruby -v
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+PostgreSQL:
 
-* Deployment instructions
+* Mac
+```sh
+brew install postgresql
+```
+* Linux
+```sh
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+```
 
-* ....
+
+## Usage APIs
+
+A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+
+_For more examples and usage, please refer to the [APIs](https://maverick2.docs.apiary.io)._
+
+## Development setup
+
+Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+
+```sh
+bundler install
+rails db:create
+rails db:migrate
+rails server
+```
+
+## Release History
+
+* 0.0.1
+    * Work in progress
+
+## Team Member Back-End
+
+* Rizal Fahmi	rhizall.00@gmail.com
+* Fadli ramadhan	fadlir93@gmail.com
+* Eko Satria	mr.eko.satria@gmail.com
+* Husnul Fadhilah fadhilah.acsl@gmail.com
+* Miftah Muhajirin D miftahmuhajir@gmail.com
