@@ -11,6 +11,7 @@ module ProjectKrama
     config.load_defaults 5.2
 
     # Rails 5
+<<<<<<< HEAD
     #config.middleware.insert_before 0, Rack::Cors do
       #allow do
         #origins '*'
@@ -19,6 +20,14 @@ module ProjectKrama
     #end 
 
 
+=======
+    # config.middleware.insert_before 0, Rack::Cors do
+    #   allow do
+    #     origins '*'
+    #     resource '*', :headers => :any, :methods => [:get, :post, :options]
+    #   end
+    # end
+>>>>>>> da16af89b44a6bcf5dc9513d6d269b83623fc499
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
