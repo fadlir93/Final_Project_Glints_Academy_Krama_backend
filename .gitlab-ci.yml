@@ -29,7 +29,7 @@ deploy-staging:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$STAGING_APP --api-key=$HEROKU_API_KEY
-    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $TELEGRAM_BOT_URL
+    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $https://api.telegram.org/bot786551644:AAFeQy1GxY5eC8S5CgDq19QXhhe725EP6Dw
   only:
     - develop
 
@@ -38,6 +38,6 @@ deploy-production:
   script:
     - gem install dpl
     - dpl --provider=heroku --app=$PROD_APP --api-key=$HEROKU_API_KEY
-    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $TELEGRAM_BOT_URL
+    - curl --data chat_id=$-1001432096433 --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE" $https://api.telegram.org/bot786551644:AAFeQy1GxY5eC8S5CgDq19QXhhe725EP6Dw
   only:
     - master
