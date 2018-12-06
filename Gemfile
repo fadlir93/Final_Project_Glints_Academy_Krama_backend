@@ -6,6 +6,7 @@ gem 'bcrypt','~>3.1.7'
 gem 'knock'
 gem 'jwt'
 gem "administrate"
+gem 'rack-cors', require: 'rack/cors'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
