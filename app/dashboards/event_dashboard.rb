@@ -9,9 +9,9 @@ class EventDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    title_event: Field::String,
-    desc_event: Field::String,
-    img_event: Field::String,
+    title: Field::String,
+    desc: Field::String,
+    img: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -23,18 +23,18 @@ class EventDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :title_event,
-    :desc_event,
-    :img_event,
+    :title,
+    :desc,
+    :img,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :title_event,
-    :desc_event,
-    :img_event,
+    :title,
+    :desc,
+    :img,
     :created_at,
     :updated_at,
   ].freeze
@@ -43,9 +43,9 @@ class EventDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :title_event,
-    :desc_event,
-    :img_event,
+    :title,
+    :desc,
+    :img,
   ].freeze
 
   # Overwrite this method to customize how events are displayed

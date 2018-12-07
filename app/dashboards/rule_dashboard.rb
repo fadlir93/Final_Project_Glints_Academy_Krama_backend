@@ -11,8 +11,8 @@ class RuleDashboard < Administrate::BaseDashboard
     rulesplace: Field::HasMany,
     place: Field::HasMany,
     id: Field::Number,
-    desc_rules: Field::String,
-    img_rules: Field::String,
+    desc: Field::String,
+    img: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -26,7 +26,7 @@ class RuleDashboard < Administrate::BaseDashboard
     :rulesplace,
     :place,
     :id,
-    :desc_rules,
+    :desc,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,8 +35,8 @@ class RuleDashboard < Administrate::BaseDashboard
     :rulesplace,
     :place,
     :id,
-    :desc_rules,
-    :img_rules,
+    :desc,
+    :img,
     :created_at,
     :updated_at,
   ].freeze
@@ -47,8 +47,8 @@ class RuleDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :rulesplace,
     :place,
-    :desc_rules,
-    :img_rules,
+    :desc,
+    :img,
   ].freeze
 
   # Overwrite this method to customize how rules are displayed
