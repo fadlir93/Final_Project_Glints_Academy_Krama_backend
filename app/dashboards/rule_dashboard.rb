@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class RuleDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -14,7 +16,7 @@ class RuleDashboard < Administrate::BaseDashboard
     desc: Field::String,
     img: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -22,33 +24,33 @@ class RuleDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :rulesplace,
-    :place,
-    :id,
-    :desc,
+  COLLECTION_ATTRIBUTES = %i[
+    rulesplace
+    place
+    id
+    desc
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :rulesplace,
-    :place,
-    :id,
-    :desc,
-    :img,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    rulesplace
+    place
+    id
+    desc
+    img
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :rulesplace,
-    :place,
-    :desc,
-    :img,
+  FORM_ATTRIBUTES = %i[
+    rulesplace
+    place
+    desc
+    img
   ].freeze
 
   # Overwrite this method to customize how rules are displayed
