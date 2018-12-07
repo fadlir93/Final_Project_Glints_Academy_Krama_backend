@@ -47,7 +47,7 @@ module Api
 
             private
             def rule_param
-                params.require(:rule).permit(:desc_rules, :img_rules)
+                params.require(:rule).permit(:desc, :img)
             end
 
             def set_rule

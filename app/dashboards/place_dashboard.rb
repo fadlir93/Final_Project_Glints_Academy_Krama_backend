@@ -11,9 +11,9 @@ class PlaceDashboard < Administrate::BaseDashboard
     rulesplace: Field::HasMany,
     rules: Field::HasMany,
     id: Field::Number,
-    title_place: Field::String,
-    desc_place: Field::String,
-    img_place: Field::String,
+    title: Field::String,
+    desc: Field::String,
+    img: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -27,7 +27,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     :rulesplace,
     :rules,
     :id,
-    :title_place,
+    :title,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,9 +36,9 @@ class PlaceDashboard < Administrate::BaseDashboard
     :rulesplace,
     :rules,
     :id,
-    :title_place,
-    :desc_place,
-    :img_place,
+    :title,
+    :desc,
+    :img,
     :created_at,
     :updated_at,
   ].freeze
@@ -49,9 +49,9 @@ class PlaceDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :rulesplace,
     :rules,
-    :title_place,
-    :desc_place,
-    :img_place,
+    :title,
+    :desc,
+    :img,
   ].freeze
 
   # Overwrite this method to customize how places are displayed
