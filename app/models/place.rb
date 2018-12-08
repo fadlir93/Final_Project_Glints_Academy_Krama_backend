@@ -1,4 +1,5 @@
 class Place < ApplicationRecord
+    has_one_attached :image
     has_many :rulesplace
     has_many :rules, through: :rulesplace
     validates :title, presence: true
