@@ -12309,3 +12309,407 @@ app/controllers/api/v1/places_controller.rb:27:in `create'
   [1m[36mRule Load (0.7ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" WHERE "rules"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
   [1m[36mPlace Load (43.1ms)[0m  [1m[34mSELECT  "places".* FROM "places" INNER JOIN "rulesplaces" ON "places"."id" = "rulesplaces"."place_id" WHERE "rulesplaces"."rule_id" = $1 LIMIT $2[0m  [["rule_id", 4], ["LIMIT", 11]]
 >>>>>>> bd63236f287e824a7e600d5e8f2d2998a84825bc
+Started GET "/" for 127.0.0.1 at 2018-12-08 17:17:19 +0700
+  
+PG::ConnectionBad (could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/tmp/.s.PGSQL.5432"?
+):
+  
+pg (1.1.3) lib/pg.rb:56:in `initialize'
+pg (1.1.3) lib/pg.rb:56:in `new'
+pg (1.1.3) lib/pg.rb:56:in `connect'
+activerecord (5.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:692:in `connect'
+activerecord (5.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:223:in `initialize'
+activerecord (5.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `new'
+activerecord (5.2.2) lib/active_record/connection_adapters/postgresql_adapter.rb:48:in `postgresql_connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:811:in `new_connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:855:in `checkout_new_connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:834:in `try_to_checkout_new_connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:795:in `acquire_connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:523:in `checkout'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:382:in `connection'
+activerecord (5.2.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:1010:in `retrieve_connection'
+activerecord (5.2.2) lib/active_record/connection_handling.rb:118:in `retrieve_connection'
+activerecord (5.2.2) lib/active_record/connection_handling.rb:90:in `connection'
+activerecord (5.2.2) lib/active_record/migration.rb:554:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2018-12-08 17:17:53 +0700
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.2) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.2) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to Droptable (20181204033434)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (37.6ms)[0m  [1m[35mCREATE TABLE "kramaadmins" ("id" bigserial primary key)[0m
+  ↳ db/migrate/20181204033434_droptable.rb:5
+  [1m[35m (7.6ms)[0m  [1m[35mDROP TABLE "kramaadmins"[0m
+  ↳ db/migrate/20181204033434_droptable.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181204033434"]]
+  ↳ bin/rails:11
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to RenameFieldEvents (20181206142702)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "events" RENAME COLUMN "title_event" TO "title"[0m
+  ↳ db/migrate/20181206142702_rename_field_events.rb:5
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "events" RENAME COLUMN "desc_event" TO "desc"[0m
+  ↳ db/migrate/20181206142702_rename_field_events.rb:6
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "events" RENAME COLUMN "img_event" TO "img"[0m
+  ↳ db/migrate/20181206142702_rename_field_events.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181206142702"]]
+  ↳ bin/rails:11
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to RenameFieldPlaces (20181206143036)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "places" RENAME COLUMN "title_place" TO "title"[0m
+  ↳ db/migrate/20181206143036_rename_field_places.rb:5
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "places" RENAME COLUMN "desc_place" TO "desc"[0m
+  ↳ db/migrate/20181206143036_rename_field_places.rb:6
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "places" RENAME COLUMN "img_place" TO "img"[0m
+  ↳ db/migrate/20181206143036_rename_field_places.rb:7
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181206143036"]]
+  ↳ bin/rails:11
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to RenameFieldRules (20181206143727)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "rules" RENAME COLUMN "desc_rules" TO "desc"[0m
+  ↳ db/migrate/20181206143727_rename_field_rules.rb:5
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "rules" RENAME COLUMN "img_rules" TO "img"[0m
+  ↳ db/migrate/20181206143727_rename_field_rules.rb:6
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181206143727"]]
+  ↳ bin/rails:11
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to CreateActiveStorageTables (20181206230820)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181206230820_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  ↳ db/migrate/20181206230820_create_active_storage_tables.active_storage.rb:4
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20181206230820_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  ↳ db/migrate/20181206230820_create_active_storage_tables.active_storage.rb:16
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  ↳ db/migrate/20181206230820_create_active_storage_tables.active_storage.rb:16
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181206230820"]]
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (3.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started GET "/" for 127.0.0.1 at 2018-12-08 17:18:49 +0700
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (4.4ms)
+Completed 200 OK in 27ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-08 17:18:56 +0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/railties-5.2.2/lib/rails/templates/rails/welcome/index.html.erb (3.1ms)
+Completed 200 OK in 11ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2018-12-08 17:18:58 +0700
+Processing by Admin::EventsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/maverick/binarxglints/backend/app/models/event.rb:4: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+/Users/maverick/binarxglints/backend/app/models/event.rb:10: syntax error, unexpected ===, expecting keyword_end
+=======
+^~~
+/Users/maverick/binarxglints/backend/app/models/event.rb:17: syntax error, unexpected >>, expecting keyword_end
+>>>>>>> bd63236f287e824a7e600d5...
+^~):
+  
+app/models/event.rb:4: syntax error, unexpected <<
+app/models/event.rb:10: syntax error, unexpected ===, expecting keyword_end
+app/models/event.rb:17: syntax error, unexpected >>, expecting keyword_end
+Started GET "/admin" for 127.0.0.1 at 2018-12-08 17:18:58 +0700
+Processing by Admin::EventsController#index as HTML
+Completed 500 Internal Server Error in 1037ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/maverick/binarxglints/backend/app/models/event.rb:4: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+/Users/maverick/binarxglints/backend/app/models/event.rb:10: syntax error, unexpected ===, expecting keyword_end
+=======
+^~~
+/Users/maverick/binarxglints/backend/app/models/event.rb:17: syntax error, unexpected >>, expecting keyword_end
+>>>>>>> bd63236f287e824a7e600d5...
+^~):
+  
+app/models/event.rb:4: syntax error, unexpected <<
+app/models/event.rb:10: syntax error, unexpected ===, expecting keyword_end
+app/models/event.rb:17: syntax error, unexpected >>, expecting keyword_end
+Started GET "/admin" for 127.0.0.1 at 2018-12-08 17:20:03 +0700
+Processing by Admin::EventsController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_search.html.erb (2.9ms)
+  [1m[36mEvent Load (2.0ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (13.7ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (279.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (6262.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (4.3ms)
+Completed 500 Internal Server Error in 6803ms (ActiveRecord: 22.1ms)
+
+
+  
+SyntaxError (/Users/maverick/binarxglints/backend/app/models/place.rb:1: syntax error, unexpected <<
+<<<<<<< HEAD
+^~
+/Users/maverick/binarxglints/backend/app/models/place.rb:10: syntax error, unexpected ===, expecting keyword_end
+=======
+^~~
+/Users/maverick/binarxglints/backend/app/models/place.rb:18: syntax error, unexpected >>, expecting keyword_end
+>>>>>>> bd63236f287e824a7e600d5...
+^~
+/Users/maverick/binarxglints/backend/app/models/place.rb:19: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/models/place.rb:1: syntax error, unexpected <<
+app/models/place.rb:10: syntax error, unexpected ===, expecting keyword_end
+app/models/place.rb:18: syntax error, unexpected >>, expecting keyword_end
+app/models/place.rb:19: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/admin" for 127.0.0.1 at 2018-12-08 17:20:57 +0700
+Processing by Admin::EventsController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_search.html.erb (3.9ms)
+  [1m[36mEvent Load (0.6ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (8.4ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (107.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (16.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (39.4ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (1.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (241.5ms)
+Completed 200 OK in 686ms (Views: 661.3ms | ActiveRecord: 9.3ms)
+
+
+Started GET "/admin/places" for 127.0.0.1 at 2018-12-08 17:21:00 +0700
+Processing by Admin::PlacesController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_search.html.erb (2.1ms)
+  [1m[36mPlace Load (3.0ms)[0m  [1m[34mSELECT  "places".* FROM "places" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  [1m[36mRulesplace Load (4.0ms)[0m  [1m[34mSELECT "rulesplaces".* FROM "rulesplaces" WHERE "rulesplaces"."place_id" IN ($1, $2)[0m  [["place_id", 1], ["place_id", 2]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/has_many/_index.html.erb (0.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/number/_index.html.erb (2.2ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/string/_index.html.erb (0.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/has_many/_index.html.erb (0.2ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/has_many/_index.html.erb (0.3ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/number/_index.html.erb (0.1ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/string/_index.html.erb (0.1ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (589.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (685.7ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (15.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (1.3ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (10.3ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (35.6ms)
+Completed 200 OK in 989ms (Views: 966.7ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/admin/rules" for 127.0.0.1 at 2018-12-08 17:21:02 +0700
+Processing by Admin::RulesController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_search.html.erb (3.2ms)
+  [1m[36mRule Load (1.2ms)[0m  [1m[34mSELECT  "rules".* FROM "rules" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (10.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (88.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (23.0ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (7.0ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (1.3ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (37.1ms)
+Completed 200 OK in 399ms (Views: 386.3ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/admin/rulesplaces" for 127.0.0.1 at 2018-12-08 17:21:04 +0700
+Processing by Admin::RulesplacesController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  [1m[36mRulesplace Load (0.7ms)[0m  [1m[34mSELECT  "rulesplaces".* FROM "rulesplaces" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (18.4ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (75.3ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (11.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (3.7ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (30.0ms)
+Completed 200 OK in 360ms (Views: 352.1ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/admin/events" for 127.0.0.1 at 2018-12-08 17:21:09 +0700
+Processing by Admin::EventsController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_search.html.erb (2.2ms)
+  [1m[36mEvent Load (0.5ms)[0m  [1m[34mSELECT  "events".* FROM "events" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (10.2ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (82.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (20.7ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (15.1ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.9ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (37.0ms)
+Completed 200 OK in 418ms (Views: 414.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin/events/new" for 127.0.0.1 at 2018-12-08 17:21:11 +0700
+Processing by Admin::EventsController#new as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/new.html.erb within layouts/administrate/application
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/string/_form.html.erb (23.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/string/_form.html.erb (0.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/string/_form.html.erb (1.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_form.html.erb (61.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/new.html.erb within layouts/administrate/application (92.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (12.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (5.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (29.0ms)
+Completed 200 OK in 354ms (Views: 352.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/rulesplaces" for 127.0.0.1 at 2018-12-08 17:25:42 +0700
+Processing by Admin::RulesplacesController#index as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  [1m[36mRulesplace Load (0.4ms)[0m  [1m[34mSELECT  "rulesplaces".* FROM "rulesplaces" LIMIT $1 OFFSET $2[0m  [["LIMIT", 20], ["OFFSET", 0]]
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_collection.html.erb (8.4ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (42.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (10.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (4.1ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.7ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (26.8ms)
+Completed 200 OK in 268ms (Views: 265.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin/rulesplaces/new" for 127.0.0.1 at 2018-12-08 17:25:44 +0700
+Processing by Admin::RulesplacesController#new as HTML
+  Rendering /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/new.html.erb within layouts/administrate/application
+  [1m[36mPlace Load (0.4ms)[0m  [1m[34mSELECT "places".* FROM "places"[0m
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/belongs_to/_form.html.erb (5.2ms)
+  [1m[36mRule Load (0.4ms)[0m  [1m[34mSELECT "rules".* FROM "rules"[0m
+  ↳ /Users/maverick/.rvm/gems/ruby-2.5.3/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/fields/belongs_to/_form.html.erb (2.5ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_form.html.erb (47.1ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/new.html.erb within layouts/administrate/application (68.8ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_stylesheet.html.erb (11.0ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_icons.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_navigation.html.erb (4.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_flashes.html.erb (0.6ms)
+  Rendered /Users/maverick/.rvm/gems/ruby-2.5.3/gems/administrate-0.11.0/app/views/administrate/application/_javascript.html.erb (33.7ms)
+Completed 200 OK in 288ms (Views: 285.8ms | ActiveRecord: 0.7ms)
+
+
