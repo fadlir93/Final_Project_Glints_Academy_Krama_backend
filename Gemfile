@@ -7,15 +7,9 @@ ruby '2.5.3'
 gem 'administrate'
 gem 'bcrypt', '~>3.1.7'
 gem 'jwt'
-<<<<<<< HEAD
 gem 'knock'
 gem 'rack-cors', require: 'rack/cors'
 gem 'rubocop', require: false
-=======
-gem "administrate"
-gem 'rack-cors', :require => 'rack/cors'
-
->>>>>>> bd63236f287e824a7e600d5e8f2d2998a84825bc
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
