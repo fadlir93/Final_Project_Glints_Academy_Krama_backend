@@ -27,8 +27,7 @@ module Api
         if @rule.save
           render json: { result: true, rules: @rule }, status: :created
         else
-          render json: { result: false, rules: @rule.errors }
-          , status: :unprocessable_entity
+          render json: { result: false, rules: @rule.errors }, status: :unprocessable_entity
         end
       end
 

@@ -28,8 +28,7 @@ module Api
         if @place.save
           render json: { result: true, places: @place }, status: :created
         else
-          render json: { result: false, places: @place.errors }
-          , status: :unprocessable_entity
+          render json: { result: false, places: @place.errors }, status: :unprocessable_entity
         end
       end
 
