@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :events
+      resources :places
+      resources :rules
+      resources :rulesplaces
+
+      root to: "events#index"
+    end
   post 'rule_token' => 'rule_token#create'
   post 'event_token' => 'event_token#create'
   post 'place_token' => 'place_token#create'

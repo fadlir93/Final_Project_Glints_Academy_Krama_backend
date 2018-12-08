@@ -49,7 +49,7 @@ module Api
             end
             private
             def place_param
-                params.require(:place).permit(:title_place, :desc_place, :img_place, :image)
+                params.require(:place).permit(:title, :desc, :img)
             end
 
             def set_place
