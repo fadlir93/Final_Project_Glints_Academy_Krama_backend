@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class PlaceDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -15,7 +17,7 @@ class PlaceDashboard < Administrate::BaseDashboard
     desc: Field::String,
     img: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -23,35 +25,35 @@ class PlaceDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :rulesplace,
-    :rules,
-    :id,
-    :title,
+  COLLECTION_ATTRIBUTES = %i[
+    rulesplace
+    rules
+    id
+    title
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :rulesplace,
-    :rules,
-    :id,
-    :title,
-    :desc,
-    :img,
-    :created_at,
-    :updated_at,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    rulesplace
+    rules
+    id
+    title
+    desc
+    img
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :rulesplace,
-    :rules,
-    :title,
-    :desc,
-    :img,
+  FORM_ATTRIBUTES = %i[
+    rulesplace
+    rules
+    title
+    desc
+    img
   ].freeze
 
   # Overwrite this method to customize how places are displayed
