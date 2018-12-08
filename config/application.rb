@@ -18,8 +18,12 @@ module ProjectKrama
         origins '*'
         resource '*', headers: :any, methods: %i[get post options]
       end
+<<<<<<< HEAD
     end
 
+=======
+    end 
+>>>>>>> bd63236f287e824a7e600d5e8f2d2998a84825bc
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
