@@ -45,7 +45,7 @@ sudo apt-get install postgresql postgresql-contrib
 
 A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
-_For more examples and usage, please refer to the [APIs](https://maverick2.docs.apiary.io)._
+_For more examples and usage, please refer to the [APIs](https://kramabatam.docs.apiary.io)._
 
 ## Development setup
 

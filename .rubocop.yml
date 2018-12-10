@@ -9,3 +9,6 @@ Rails/Validation:
 
 Style/ClassAndModuleChildren:
   Enabled: false
+
+Metrics/ClassLength:
+  Max: 150
