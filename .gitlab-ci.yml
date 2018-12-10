@@ -30,7 +30,8 @@ deploy-staging:
     - gem install dpl
     - dpl --provider=heroku --app=$STAGING_APP --api-key=$HEROKU_API_KEY
     - curl --data chat_id=$TELEGRAM_CHAT_ID --data-urlencode text="[Prod-Krama-BOT] Deploy Done! | Deployed by $GITLAB_USER_NAME | Update in $GITLAB_FEATURES | $CI_COMMIT_TITLE $TELEGRAM_BOT_URL"
-    - develop
+  only:
+     - develop
 
 deploy-production:
   stage: production
