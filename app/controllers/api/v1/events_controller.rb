@@ -50,7 +50,7 @@ module Api
       private
 
       def event_param
-        params.require(:event).permit(:title, :desc, :img)
+        params.require(:event).permit(:title, :desc, :img, :image)
       end
 
       def set_event
