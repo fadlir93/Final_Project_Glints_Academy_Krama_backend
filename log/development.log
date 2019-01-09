@@ -13090,3 +13090,272 @@ Completed 200 OK in 239ms (Views: 237.1ms | ActiveRecord: 0.5ms)
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   ↳ bin/rails:11
 >>>>>>> 5ca02230bc91b817b2116de7657d78af4c6ff76a
+  [1m[35m (45.5ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (5.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (3.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (26.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (47.9ms)[0m  [1m[35mDROP TABLE "active_storage_blobs"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Migrating to AddImageToEvent (20190109115646)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (44.7ms)[0m  [1m[35mALTER TABLE "events" ADD "image" character varying[0m
+  ↳ db/migrate/20190109115646_add_image_to_event.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190109115646"]]
+  ↳ bin/rails:11
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to AddImageToPlace (20190109115832)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "places" ADD "image" character varying[0m
+  ↳ db/migrate/20190109115832_add_image_to_place.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190109115832"]]
+  ↳ bin/rails:11
+  [1m[35m (25.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to RemoveFieldNameFromEvent (20190109120410)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (25.7ms)[0m  [1m[35mALTER TABLE "events" DROP COLUMN "img"[0m
+  ↳ db/migrate/20190109120410_remove_field_name_from_event.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190109120410"]]
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+Migrating to RemoveFieldNameFromPlace (20190109120459)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "places" DROP COLUMN "img"[0m
+  ↳ db/migrate/20190109120459_remove_field_name_from_place.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190109120459"]]
+  ↳ bin/rails:11
+  [1m[35m (23.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[36mActiveRecord::InternalMetadata Load (22.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:11
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:11
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5156446124867069025)[0m
+  ↳ bin/rails:11
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:11
+Started POST "/api/v1/events" for 127.0.0.1 at 2019-01-09 19:11:59 +0700
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nidiemacbook/.rbenv/versions/2.5.3/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/events"):
+  
+actionpack (5.2.2) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.2) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.2) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.2) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.2) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.2.2) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:16:14 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7e987d58 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-1o8t587.jpg>, @original_filename="yogyakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"yogyakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Event::AvatarUploader):
+  
+app/models/event.rb:10:in `<class:Event>'
+app/models/event.rb:3:in `<main>'
+app/controllers/api/v1/events_controller.rb:26:in `create'
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:17:45 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7ce55d28 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-19kes3h.jpg>, @original_filename="yogyakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"yogyakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 400 Bad Request in 38ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: event):
+  
+app/controllers/api/v1/events_controller.rb:53:in `event_param'
+app/controllers/api/v1/events_controller.rb:26:in `create'
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:19:12 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed79fbc138 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-1ux5aen.jpg>, @original_filename="yogyakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"yogyakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (40.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 50.3ms)
+
+
+  
+NoMethodError (undefined method `img' for #<Event:0x00007fed7ce760c8>
+Did you mean?  image):
+  
+app/controllers/api/v1/events_controller.rb:26:in `create'
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:22:40 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7cd614d0 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-1lib958.jpg>, @original_filename="yogyakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"yogyakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.5ms)
+
+
+  
+NoMethodError (undefined method `img' for #<Event:0x00007fed7cd5b9b8>
+Did you mean?  image):
+  
+app/controllers/api/v1/events_controller.rb:26:in `create'
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:23:59 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7e8f3c20 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-vhgiyw.jpg>, @original_filename="yogyakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"yogyakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[36mEvent Create (29.2ms)[0m  [1m[32mINSERT INTO "events" ("title", "desc", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Yogyakarta"], ["desc", "about yogykarta"], ["created_at", "2019-01-09 12:24:00.036235"], ["updated_at", "2019-01-09 12:24:00.036235"], ["image", "nc0sygpkquwdddpcinew.jpg"]]
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[36mEvent Update All (40.9ms)[0m  [1m[33mUPDATE "events" SET "image" = 'image/upload/v1547036643/nc0sygpkquwdddpcinew.jpg' WHERE "events"."id" = $1[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:27
+  [1m[36mEvent Update (40.2ms)[0m  [1m[33mUPDATE "events" SET "updated_at" = $1, "image" = $2 WHERE "events"."id" = $3[0m  [["updated_at", "2019-01-09 12:24:04.143927"], ["image", "image/upload/v1547036643/nc0sygpkquwdddpcinew.jpg"], ["id", 3]]
+  ↳ app/controllers/api/v1/events_controller.rb:27
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:27
+Completed 201 Created in 4209ms (Views: 0.7ms | ActiveRecord: 120.9ms)
+
+
+Started POST "/api/v1/place_post" for 127.0.0.1 at 2019-01-09 19:26:07 +0700
+Processing by Api::V1::PlacesController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7cdb86e0 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-k1ypyq.jpg>, @original_filename="jakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"jakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 400 Bad Request in 20ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: place):
+  
+app/controllers/api/v1/places_controller.rb:54:in `place_param'
+app/controllers/api/v1/places_controller.rb:27:in `create'
+Started POST "/api/v1/place_post" for 127.0.0.1 at 2019-01-09 19:27:22 +0700
+Processing by Api::V1::PlacesController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed79bb2d30 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-xm36u8.jpg>, @original_filename="jakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"jakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+Completed 400 Bad Request in 13ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: place):
+  
+app/controllers/api/v1/places_controller.rb:54:in `place_param'
+app/controllers/api/v1/places_controller.rb:27:in `create'
+Started POST "/api/v1/place_post" for 127.0.0.1 at 2019-01-09 19:27:56 +0700
+Processing by Api::V1::PlacesController#create as */*
+  Parameters: {"title"=>"Yogyakarta", "desc"=>"about yogykarta", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7cf06448 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-c7jk3g.jpg>, @original_filename="jakarta.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"jakarta.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[36mPlace Create (45.2ms)[0m  [1m[32mINSERT INTO "places" ("title", "desc", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Yogyakarta"], ["desc", "about yogykarta"], ["created_at", "2019-01-09 12:27:56.620631"], ["updated_at", "2019-01-09 12:27:56.620631"], ["image", "emls7jy0g9awvvvujn4x.jpg"]]
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[36mPlace Update All (1.0ms)[0m  [1m[33mUPDATE "places" SET "image" = 'image/upload/v1547036883/emls7jy0g9awvvvujn4x.jpg' WHERE "places"."id" = $1[0m  [["id", 10]]
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[35m (40.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/places_controller.rb:28
+  [1m[36mPlace Update (0.6ms)[0m  [1m[33mUPDATE "places" SET "updated_at" = $1, "image" = $2 WHERE "places"."id" = $3[0m  [["updated_at", "2019-01-09 12:28:04.323102"], ["image", "image/upload/v1547036883/emls7jy0g9awvvvujn4x.jpg"], ["id", 10]]
+  ↳ app/controllers/api/v1/places_controller.rb:28
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/places_controller.rb:28
+Completed 201 Created in 7743ms (Views: 0.3ms | ActiveRecord: 96.0ms)
+
+
+Started POST "/api/v1/place_post" for 127.0.0.1 at 2019-01-09 19:32:46 +0700
+Processing by Api::V1::PlacesController#create as */*
+  Parameters: {"title"=>"Makassar", "desc"=>"about makassar", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed7cdfd998 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-wjj2kq.jpg>, @original_filename="Makassar.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"Makassar.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[36mPlace Create (460.7ms)[0m  [1m[32mINSERT INTO "places" ("title", "desc", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Makassar"], ["desc", "about makassar"], ["created_at", "2019-01-09 12:32:47.029309"], ["updated_at", "2019-01-09 12:32:47.029309"], ["image", "mcnomrpuvtgyp03uyukk.jpg"]]
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[36mPlace Update All (53.8ms)[0m  [1m[33mUPDATE "places" SET "image" = 'image/upload/v1547037177/mcnomrpuvtgyp03uyukk.webp' WHERE "places"."id" = $1[0m  [["id", 11]]
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[35m (123.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/places_controller.rb:27
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/places_controller.rb:28
+  [1m[36mPlace Update (0.7ms)[0m  [1m[33mUPDATE "places" SET "updated_at" = $1, "image" = $2 WHERE "places"."id" = $3[0m  [["updated_at", "2019-01-09 12:33:00.094667"], ["image", "image/upload/v1547037177/mcnomrpuvtgyp03uyukk.webp"], ["id", 11]]
+  ↳ app/controllers/api/v1/places_controller.rb:28
+  [1m[35m (40.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/places_controller.rb:28
+Completed 201 Created in 13236ms (Views: 9.6ms | ActiveRecord: 680.1ms)
+
+
+Started POST "/api/v1/event_post" for 127.0.0.1 at 2019-01-09 19:33:32 +0700
+Processing by Api::V1::EventsController#create as */*
+  Parameters: {"title"=>"Papua", "desc"=>"about Papua", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007fed79e1d4f8 @tempfile=#<Tempfile:/var/folders/fm/mdxbxm_524lctl8q9vscdwrc0000gn/T/RackMultipart20190109-30989-yatiog.jpg>, @original_filename="raja ampat.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"image\"; filename=\"raja ampat.jpg\"\r\nContent-Type: image/jpeg\r\n">}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[36mEvent Create (42.1ms)[0m  [1m[32mINSERT INTO "events" ("title", "desc", "created_at", "updated_at", "image") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Papua"], ["desc", "about Papua"], ["created_at", "2019-01-09 12:33:32.953758"], ["updated_at", "2019-01-09 12:33:32.953758"], ["image", "omooonfbyzlxcnbnr5kk.jpg"]]
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[36mEvent Update All (0.5ms)[0m  [1m[33mUPDATE "events" SET "image" = 'image/upload/v1547037216/omooonfbyzlxcnbnr5kk.jpg' WHERE "events"."id" = $1[0m  [["id", 4]]
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (41.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:26
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/events_controller.rb:27
+  [1m[36mEvent Update (81.9ms)[0m  [1m[33mUPDATE "events" SET "updated_at" = $1, "image" = $2 WHERE "events"."id" = $3[0m  [["updated_at", "2019-01-09 12:33:37.453057"], ["image", "image/upload/v1547037216/omooonfbyzlxcnbnr5kk.jpg"], ["id", 4]]
+  ↳ app/controllers/api/v1/events_controller.rb:27
+  [1m[35m (40.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/events_controller.rb:27
+Completed 201 Created in 4895ms (Views: 1.6ms | ActiveRecord: 361.0ms)
+
+

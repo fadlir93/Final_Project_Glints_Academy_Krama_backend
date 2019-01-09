@@ -26,7 +26,7 @@ module Api
       def create
         @place = Place.create(place_param)
         if @place.save
-          render json: { result: true, places: @place }, status: :created
+          render json: { result: true, msg: 'Success' }, status: :created
         else
           render json: { result: false, places: @place.errors }, status: :unprocessable_entity
         end
@@ -51,7 +51,7 @@ module Api
       private
 
       def place_param
-        params.require(:place).permit(:title, :desc, :img, :image)
+        params.permit(:title, :desc, :image)
       end
 
       def set_place
