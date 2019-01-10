@@ -25,7 +25,7 @@ module Api
       def create
         @event = Event.create(event_param)
         if @event.save
-          render json: { result: true, events: @event }, status: :created
+          render json: { result: true, msg: 'Success' }, status: :created
         else
           render json: { result: false, events: @event.errors }, status: :unprocessable_entity
         end
@@ -50,7 +50,7 @@ module Api
       private
 
       def event_param
-        params.require(:event).permit(:title, :desc, :img, :image)
+        params.permit(:title, :desc, :image)
       end
 
       def set_event
