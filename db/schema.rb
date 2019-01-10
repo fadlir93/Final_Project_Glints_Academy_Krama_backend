@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2018_12_14_043026) do
+=======
 ActiveRecord::Schema.define(version: 2019_01_09_120459) do
+>>>>>>> e5de5a8ab7ab55e24d63e1bdab063a587fa42bc5
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +33,16 @@ ActiveRecord::Schema.define(version: 2019_01_09_120459) do
     t.string "image"
   end
 
-  create_table "logins", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
+  create_table "models", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_models_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
   end
 
   create_table "places", force: :cascade do |t|
@@ -65,6 +76,18 @@ ActiveRecord::Schema.define(version: 2019_01_09_120459) do
     t.datetime "updated_at", null: false
     t.index ["place_id"], name: "index_rulesplaces_on_place_id"
     t.index ["rule_id"], name: "index_rulesplaces_on_rule_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "rulesevents", "events"
