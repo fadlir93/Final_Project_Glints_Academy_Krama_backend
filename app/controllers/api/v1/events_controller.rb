@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+ 
 module Api
   module V1
     class EventsController < ApplicationController
@@ -19,7 +19,13 @@ module Api
 
       def show
         @event = set_event
-        render json: { result: true, event: @event }, status: :ok
+        render json: { event: @event }, status: :ok
+      end
+
+      def showrule
+        @event = set_event
+        @rules = @event.rules
+        render json: {eventRule: @rules }, status: :ok
       end
 
       def create
@@ -40,7 +46,7 @@ module Api
       end
 
       def delete
-        if @place.destroy
+        if @event.destroy
           render json: { result: true, msg: 'delete success' }
         else
           render json: { result: false, msg: 'delete failed' }

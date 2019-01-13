@@ -14,9 +14,7 @@ gem 'devise'
 gem 'cancancan', '~> 2.0'
 
 
-
 gem 'carrierwave'
-gem 'cloudinary', '~> 1.9', '>= 1.9.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use postgresql as the database for Active Record
@@ -40,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+
+# Use ActiveStorage variant
+gem 'mini_magick', '~> 4.8'
 
 
 # Use Capistrano for deployment

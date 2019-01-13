@@ -6,5 +6,4 @@ class Event < ApplicationRecord
     has_many :rules, through: :rulesevent
     validates :title, presence: true
     validates :desc, presence: true
-    validates :image, presence: true
 end

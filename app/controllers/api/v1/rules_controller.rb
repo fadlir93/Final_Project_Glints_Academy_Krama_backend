@@ -21,6 +21,7 @@ module Api
         @rule = set_rule
         render json: { result: true, rule: @rule }, status: :ok
       end
+      
 
       def create
         @rule = Rule.create(rule_param)
@@ -40,6 +41,7 @@ module Api
       end
 
       def delete
+        @rule = Rule.find(params[:id])
         if @rule.destroy
           render json: { result: true, msg: 'delete success' }
         else
