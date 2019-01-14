@@ -20,7 +20,13 @@ module Api
 
       def show
         @place = set_place
-        render json: { result: true, place: @place }, status: :ok
+        render json: { place: @place }, status: :ok
+      end
+
+      def showrule
+        @place = set_place
+        @rules = @place.rules
+        render json: {eventRule: @rules}, status: :ok
       end
 
       def create

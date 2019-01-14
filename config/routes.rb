@@ -21,14 +21,16 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'places', to: 'places#index'
       post 'place_post', to: 'places#create'
-      get 'places/:id', to: 'places#show'
+      get 'place/rule/:id', to: 'places#showrule'
+      get 'place/:id', to: 'places#show'
       delete 'places/delete/:id', to: 'places#delete'
       put 'place/update/:id', to: 'places#update'
 
       # event
       get 'events', to: 'events#index'
       post 'event_post', to: 'events#create'
-      get 'events/:id', to: 'events#show'
+      get 'event/rule/:id', to: 'events#showrule'
+      get 'event/:id', to: 'events#show'
       delete 'events/delete/:id', to: 'events#delete'
       put 'event/update/:id', to: 'events#update'
 
@@ -38,6 +40,10 @@ Rails.application.routes.draw do
       get 'rules/:id', to: 'rules#show'
       delete 'rules/delete/:id', to: 'rules#delete'
       put 'rule/update/:id', to: 'rules#update'
+
+      #eventsPlace
+      get 'rules_place', to: 'rulesplace#index'
+
     end
   end
 end
